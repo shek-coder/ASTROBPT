@@ -11,7 +11,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 }
 
-export default function TechnologyCards() {
+export default function TechnologyCards({ onTechInspect }) {
   const [activeTech, setActiveTech] = useState(null)
 
   return (
@@ -45,7 +45,7 @@ export default function TechnologyCards() {
                 key={t.id}
                 className="glass tech-card"
                 variants={fadeUp}
-                onClick={() => setActiveTech(t)}
+                onClick={() => { setActiveTech(t); onTechInspect?.() }}
               >
                 <Icon size={24} className="t-icon" />
                 <div className="t-num">{t.num}</div>

@@ -18,7 +18,7 @@ export function scrollToSection(id) {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-export default function Navbar() {
+export default function Navbar({ gameState }) {
   const [open, setOpen] = useState(false)
 
   const handleNav = (id) => {
@@ -39,6 +39,7 @@ export default function Navbar() {
             </button>
           ))}
         </div>
+        <div className="hud-xp" aria-label={`Level ${gameState?.level ?? 1}, ${gameState?.xp ?? 0} experience points`}><span>LVL</span><b>{gameState?.level ?? 1}</b><span className="hud-streak">STREAK {gameState?.streak ?? 0}</span></div>
         <button className="nav-toggle" onClick={() => setOpen(!open)} aria-label="Toggle navigation">
           {open ? <X size={18} /> : <Menu size={18} />}
         </button>

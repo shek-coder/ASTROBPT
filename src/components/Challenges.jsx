@@ -9,7 +9,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 }
 
-export default function Challenges() {
+export default function Challenges({ onChallengeView }) {
   const [activeIdx, setActiveIdx] = useState(null)
 
   return (
@@ -39,7 +39,7 @@ export default function Challenges() {
               key={r.name}
               className="glass risk-card"
               variants={fadeUp}
-              onClick={() => setActiveIdx(i)}
+              onClick={() => { setActiveIdx(i); onChallengeView?.() }}
             >
               <div className="r-num">0{i + 1}</div>
               <div className="r-name">{r.name}</div>
