@@ -44,7 +44,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 }
 
-export default function MissionDashboard() {
+export default function MissionDashboard({ onInteract }) {
   return (
     <section id="mission-control">
       <div className="wrap">
@@ -61,6 +61,7 @@ export default function MissionDashboard() {
             Live-format readouts for the habitat&rsquo;s waste-to-resource loop. Figures marked
             theoretical or reported are drawn from literature values, not measured hardware output.
           </p>
+          <button className="btn btn-ghost scan-action" onClick={onInteract}><Activity size={15} /> ACKNOWLEDGE SCAN</button>
         </motion.div>
 
         <motion.div

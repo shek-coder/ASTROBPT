@@ -24,7 +24,7 @@ const STEPS = [
 const STEP_DELAY = 550
 const wasteFlowScenes = buildWasteFlowScenes(wasteFlow)
 
-export default function Simulation() {
+export default function Simulation({ onSimulationComplete }) {
   const [running, setRunning] = useState(false)
   const [visibleCount, setVisibleCount] = useState(0)
   const [done, setDone] = useState(false)
@@ -46,6 +46,7 @@ export default function Simulation() {
           const finishT = setTimeout(() => {
             setDone(true)
             setRunning(false)
+            onSimulationComplete?.()
           }, 400)
           timers.current.push(finishT)
         }

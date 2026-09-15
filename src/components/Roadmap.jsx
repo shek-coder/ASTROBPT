@@ -11,11 +11,12 @@ const fadeUp = {
 
 const roadmapScenes = buildRoadmapScenes(roadmap)
 
-export default function Roadmap() {
+export default function Roadmap({ onRoadmapView }) {
   const [selected, setSelected] = useState(0)
   const [cinematicOpenAt, setCinematicOpenAt] = useState(null)
 
   const openStage = (i) => {
+    onRoadmapView?.()
     setSelected(i)
     setCinematicOpenAt(i + 1)
   }
